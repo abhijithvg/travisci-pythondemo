@@ -25,4 +25,4 @@ jobs:
         - bash docker_buildnpush
     - stage: Test Image
       script:
-        - docker run --rm $DOCKER_USERNAME/pythondemo:travisci sh cat app.py
+        - docker run --rm $DOCKER_USERNAME/pythondemo:travisci cat app.py
