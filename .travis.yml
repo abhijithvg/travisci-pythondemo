@@ -16,3 +16,10 @@ jobs:
         - docker
       script:
         - docker build -t abhijithvg/pythondemo:travisci .
+    - stage: deploy
+      name: "Push Docker Image to Dockerhub"
+      deploy:
+        provider: script
+        script: bash docker_push
+        on:
+          branch: master
