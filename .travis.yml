@@ -10,12 +10,6 @@ jobs:
       name: "PyUnit Tests"            # names the first Tests stage job
       script:
         - pytest
-    # - stage: Build
-    #   name: "Build Docker Image"
-    #   services:
-    #     - docker
-    #   script:
-    #     - docker build -t abhijithvg/pythondemo:travisci .
     - stage: build n push
       name: "Build and Push Docker Image to Dockerhub"
       services:
@@ -23,6 +17,6 @@ jobs:
       script:
         # - docker build -t abhijithvg/pythondemo:travisci .
         - bash docker_buildnpush
-    # - stage: Test Image
-    #   script:
-    #     - docker run --rm $DOCKER_USERNAME/pythondemo:latest cat app.py
+    - stage: Test Image
+      script:
+        - docker run --rm $DOCKER_USERNAME/pythondemo:latest cat app.py
