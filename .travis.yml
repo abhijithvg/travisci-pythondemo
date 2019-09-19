@@ -16,10 +16,13 @@ jobs:
     #     - docker
     #   script:
     #     - docker build -t abhijithvg/pythondemo:travisci .
-    - stage: deploy
-      name: "Push Docker Image to Dockerhub"
+    - stage: build n push
+      name: "Build and Push Docker Image to Dockerhub"
       services:
         - docker
       script:
-        - docker build -t abhijithvg/pythondemo:travisci .
-        - bash docker_push
+        # - docker build -t abhijithvg/pythondemo:travisci .
+        - bash docker_buildnpush
+    - stage: Test Image
+      script:
+        - docker run --rm $DOCKER_USERNAME/pythondemo:travisci sh cat app.py
