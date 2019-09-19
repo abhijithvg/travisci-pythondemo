@@ -23,6 +23,6 @@ jobs:
       script:
         # - docker build -t abhijithvg/pythondemo:travisci .
         - bash docker_buildnpush
-    - stage: Test Image
-      script:
-        - docker run --rm $DOCKER_USERNAME/pythondemo:travisci cat app.py
+    # - stage: Test Image
+    #   script:
+    #     - docker run --rm $DOCKER_USERNAME/pythondemo:latest cat app.py

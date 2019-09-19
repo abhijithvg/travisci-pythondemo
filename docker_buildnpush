@@ -1,4 +1,5 @@
 #!/bin/bash
 echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-docker build -t $DOCKER_USERNAME/pythondemo:travisci .
-docker push $DOCKER_USERNAME/pythondemo:travisci
+docker build -t pythondemo-travisci .
+docker tag pythondemo-travisci $DOCKER_USERNAME/pythondemo:latest $DOCKER_USERNAME/pythondemo:$TRAVIS_BUILD_ID $DOCKER_USERNAME/pythondemo:$TRAVIS_BUILD_NUMBER
+# docker push $DOCKER_USERNAME/pythondemo:latest
