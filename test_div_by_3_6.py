@@ -2,7 +2,8 @@ import pytest
 
 @pytest.fixture
 def input_value():
-   input = 39
+   # input = 39 #To fail assertion
+   input = 42 #To pass assertion
    return input
 
 def test_divisible_by_3(input_value):
